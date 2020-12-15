@@ -1,0 +1,1 @@
+{"version":3,"file":"login.schema.js","sourceRoot":"","sources":["../../../src/ticket/schemas/login.schema.ts"],"names":[],"mappings":";;;AAAA,qCAAqC;AACxB,QAAA,WAAW,GAAC,IAAI,QAAQ,CAAC,MAAM,CAAC;IACzC,IAAI,EAAC,MAAM;IACX,KAAK,EACL;QACI,IAAI,EAAC,MAAM;QACX,MAAM,EAAC,IAAI;KACd;IACF,QAAQ,EACR;QACI,IAAI,EAAC,MAAM;KACd;CACH,CAAC,CAAA"}
