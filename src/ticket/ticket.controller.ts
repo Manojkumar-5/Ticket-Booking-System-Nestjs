@@ -25,7 +25,7 @@ async newlogin(@Res() res, @Body() LoginDTO:LoginDTO)
 {
     const newlogin=await this.ticketService.newLogin(LoginDTO);
 
-    return res.send(newlogin);
+     res.send(newlogin);
     
 }
 
