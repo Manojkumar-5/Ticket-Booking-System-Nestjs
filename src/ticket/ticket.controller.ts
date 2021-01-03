@@ -24,10 +24,7 @@ async add(@Res() res, @Body() userDTO:UserDTO,ticketDTO:TicketDTO)
 async newlogin(@Res() res, @Body() LoginDTO:LoginDTO)
 {
     const newlogin=await this.ticketService.newLogin(LoginDTO);
-    return res.status(HttpStatus.OK).json({
-        message: 'User Login Successfull',
-        post:newlogin
-      });
+    return res.send(newlogin);
 }
 
 
