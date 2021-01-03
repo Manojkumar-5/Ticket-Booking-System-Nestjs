@@ -31,15 +31,14 @@ export class TicketService {
 
  
  async newLogin(LoginDTO:LoginDTO):Promise<Login>{
-
     if(this.LoginModel.find({email:LoginDTO.email}))
     {
         return null;
     }
 
     const newLogin= await new this.LoginModel(LoginDTO);
-
-    return await newLogin.save();
+     await newLogin.save();
+     return newLogin;
 }
 
  
