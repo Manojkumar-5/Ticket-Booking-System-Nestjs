@@ -24,7 +24,7 @@ async add(@Res() res, @Body() userDTO:UserDTO,ticketDTO:TicketDTO)
 async newlogin(@Res() res, @Body() LoginDTO:LoginDTO)
 {
     const newlogin=await this.ticketService.newLogin(LoginDTO);
-    if(newlogin)
+    if(newlogin!=null)
     return res.send(newlogin);
     else
     return res.send('User Details already found');
