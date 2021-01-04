@@ -30,16 +30,29 @@ export class TicketService {
  
 
  
- async newLogin(LoginDTO:LoginDTO):Promise<Login>{
-    if(this.LoginModel.find({email:LoginDTO.email}))
+async newLogin(LoginDTO:LoginDTO):Promise<Login>{
+
+    const ex= await this.LoginModel.find({email:LoginDTO.email});
+    
+    if(ex.length)
     {
+        
         return null;
+        
     }
 
+    else 
+    {
+               
     const newLogin= await new this.LoginModel(LoginDTO);
-     await newLogin.save();
-     return newLogin;
+
+    return await newLogin.save();
+    }
+    
+    
 }
+ 
+
 
  
 
