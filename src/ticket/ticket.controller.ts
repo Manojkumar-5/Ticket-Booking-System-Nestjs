@@ -19,14 +19,21 @@ async add(@Res() res, @Body() userDTO:UserDTO,ticketDTO:TicketDTO)
 }
 
 
-
 @Post('/newlogin')
 async newlogin(@Res() res, @Body() LoginDTO:LoginDTO)
 {
-    const newlogin=await this.ticketService.newLogin(LoginDTO);
+    const login=await this.ticketService.newLogin(LoginDTO);
 
-     res.send(newlogin);
-    
+    console.log(login);
+
+    if(login===null)
+    {
+    res.json('User Already found');
+    }
+    else
+    {
+    res.json(login);
+    }
 }
 
 
