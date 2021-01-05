@@ -8,11 +8,17 @@ import{TicketDTO} from './dto/ticket.dto';
 export class TicketController {
 constructor(private ticketService:TicketService) {}
 
-@Post('/newuser')
+    
+    @Post('/newuser')
 async add(@Res() res, @Body() userDTO:UserDTO,ticketDTO:TicketDTO)
 {
     const newbooking=await this.ticketService.newUser(userDTO);
-    return res.json(newbooking);
+    if(newbooking===null)
+    return res.send(newbooking);
+
+    else
+    res.json('Seat already booked');
+       
 }
 
 
