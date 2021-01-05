@@ -21,7 +21,7 @@ export class TicketService {
     const newUser= await new this.userModel(userDTO);
     const seat=userDTO.seatnumber;
     if(await this.ticketModel.findOne({seatnumber:seat}))
-            throw console.error("Seat already booked");
+            return null;
         else{  
         const ticket=this.ticketModel.insertMany({seatnumber:seat,isbooked:true});
         return newUser.save();
