@@ -86,6 +86,7 @@ async Ticketstatusclose(){
 }
 
 async admin(ticketDTO:TicketDTO):Promise<Ticket>{
+     await this.userModel.deleteMany({ seatnumber: { $gte: 1 } });
     return await this.ticketModel.updateMany({},{$set: {isbooked:false}})
 }
 async getticketdetails(ID: number): Promise<Ticket> {
