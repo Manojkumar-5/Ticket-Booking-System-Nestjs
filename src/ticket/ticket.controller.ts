@@ -70,16 +70,13 @@ async userlogin(@Res() res){
 
 
 
-
 @Post('/admin')
 async admin(@Res() res ,@Body() body,ticketDTO:TicketDTO){
     const username="admin";
     const password="admin";
     if(body.username==username && body.password==password){
         const reset=await this.ticketService.admin(ticketDTO);
-        return res.status(HttpStatus.OK).json({
-        message: 'Tickets are free now - Admin'
-  });
+        return res.send('Tickets are free now');
 }else{res.send("Admin details are not valid")}
 }
 
