@@ -12,10 +12,7 @@ constructor(private ticketService:TicketService) {}
 async add(@Res() res, @Body() userDTO:UserDTO,ticketDTO:TicketDTO)
 {
     const newbooking=await this.ticketService.newUser(userDTO);
-    return res.status(HttpStatus.OK).json({
-        message: 'Ticket Booking Successful',
-        post:newbooking
-      });
+    return res.json(newbooking);
 }
 
 
