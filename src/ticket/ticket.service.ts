@@ -33,7 +33,7 @@ export class TicketService {
             return null;
     }
         else{  
-        const ticket=this.ticketModel.updateOne({seatnumber:seat},{$set: {isbooked:true}});
+        const ticket=await this.ticketModel.updateOne({seatnumber:seat},{isbooked:true});
         return newUser.save();
         }
  }
