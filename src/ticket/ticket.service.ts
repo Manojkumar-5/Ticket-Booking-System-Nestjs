@@ -74,7 +74,7 @@ async Ticketstatusclose(){
 }
 
 async admin(ticketDTO:TicketDTO):Promise<Ticket>{
-    return await this.ticketModel.updateMany({},{$set: {isbooked:true}})
+    return await this.ticketModel.updateMany({},{$set: {isbooked:false}})
 }
 async getticketdetails(ID: number): Promise<Ticket> {
     const ticket= await this.ticketModel.findById(ID).exec();
