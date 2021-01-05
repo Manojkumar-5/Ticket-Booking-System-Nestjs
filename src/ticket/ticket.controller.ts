@@ -30,11 +30,11 @@ async newlogin(@Res() res, @Body() LoginDTO:LoginDTO)
 
     if(login===null)
     {
-    res.json('User Already found');
+      return res.send('User Already found');
     }
     else
     {
-    res.json(login);
+    return res.send(login);
     }
 }
 
