@@ -9,16 +9,15 @@ export class TicketController {
 constructor(private ticketService:TicketService) {}
 
     
-    @Post('/newuser')
+ @Post('/newuser')
 async add(@Res() res, @Body() userDTO:UserDTO,ticketDTO:TicketDTO)
 {
     const newbooking=await this.ticketService.newUser(userDTO);
     if(newbooking===null)
-    return res.send(newbooking);
+    return res.send('Seat not booked,Enter valid details-unique mail id ,phone number');
 
     else
-    res.json('Seat already booked');
-       
+    res.json(newbooking);   
 }
 
 
