@@ -16,17 +16,29 @@ export class TicketService {
     @InjectModel('User') private readonly userModel:Model<User>,
     @InjectModel('Login') private readonly LoginModel:Model<Login>){}
 
-        
+    
+    
     async newUser(userDTO:UserDTO):Promise<User>{
     const newUser= await new this.userModel(userDTO);
     const seat=userDTO.seatnumber;
-    if(await this.ticketModel.findOne({seatnumber:seat}))
+    if(await this.ticketModel.findOne({seatnumber:seat,isbooked:true}))
             return null;
+
+    else if(await this.userModel.findOne({email:userDTO.email}))
+    {
+        return null;
+    }
+    else if(await this.userModel.findOne({phone:userDTO.phone}))
+    {
+            return null;
+    }
         else{  
-        const ticket=this.ticketModel.insertMany({seatnumber:seat,isbooked:true});
+        const ticket=this.ticketModel.updateOne({seatnumber:seat},{$set: {isbooked:true}});
         return newUser.save();
         }
  }
+ 
+
  
 
  
